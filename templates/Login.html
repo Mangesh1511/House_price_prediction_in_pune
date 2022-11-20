@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="/static/styles/login_style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>HOuse Price Predictor.</h1>
+		<h2>Get the price prediction of the House from all the locality in pune.</h2>
+	
+		</div>
+	</div>
+	
+	
+		<div class="right">
+		<h5>Login</h5>
+		<p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p>
+    <form action ="{{url_for('login')}}" method="post">
+		<div class="inputs">
+			<input type="text" name="username" placeholder="username"  id="username" required>
+			<br>
+			<input type="password" name="password" placeholder="password" id="password" required>
+		</div>
+    <div class="msg"><b>{{msg}}</b></div>
+    <div class="form-group w-50" style="padding-top:20px">
+      <button class ="btn btn-primary form-control" style="margin-left:95px;" type="submit" onclick="send_data()" >Login</button> 
+      <!-- <input  type="submit" value="Login"> -->
+    </div>
+    </form>
+			
+       <!-- <form action="{{ url_for('login') }}" method="post">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label> 
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				 <label for="password">
+					<i class="fas fa-lock"></i>
+				</label> 
+				<input type="password" name="password" placeholder="Password" id="password" required>
+				<div class="msg">{{ msg }}</div>
+				<input type="submit" value="Login">
+			</form> -->
+			
+      <a href="{{ url_for('index') }}">Skip</a>
+	<!-- <label>
+		<input type="checkbox" name="item" checked/>
+		<span class="text-checkbox">Remember me</span>
+	</label>
+		 -->
+    
+			
+	</div>
+	
+</div>
+
+
+<!-- partial -->
+<!-- <script>
+  
+  function form_handler(event)
+        {
+            event.preventDefault();
+        }
+         function send_data()
+         {
+            document.querySelector('form').addEventListener("submit",form_handler);
+            var fd=new FormData(document.querySelector('form'));
+            var xhr=new XMLHttpRequest({mozSystem:true});
+            xhr.onreadystatechange = function(){
+              // console.log(xhr.responseText);
+        
+                if(xhr.readyState==XMLHttpRequest.DONE){
+                  // console.log(67);
+                  console.log(typeof(xhr.responseText));
+                  console.log(xhr.responseText);
+                  var str=xhr.responseText;
+                   
+                    document.getElementById('prediction').innerHTML="Prediction: Rs."+str;
+                      // document.getElementById('prediction').innerHTML=xhr.responseText;
+                }
+            };
+            xhr.send(fd);
+            console.log("Hi there\n");
+         }
+        
+
+    
+</script>
+   -->
+</body>
+</html>

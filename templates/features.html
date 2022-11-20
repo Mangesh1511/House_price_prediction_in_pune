@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <title>House predictor/dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .chartMenu {
+        width: 100vw;
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(255, 26, 104, 1);
+      }
+      .chartMenu p {
+        padding: 10px;
+        font-size: 20px;
+      }
+      .chartCard {
+        width: 100%;
+        height:100%;
+        flex-direction: column;
+        height: calc(100vh - 40px);
+        background: rgba(255, 26, 104, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 700px;
+        height:600px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(255, 26, 104, 1);
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-custom" style="background: rgba(255, 26, 104, 0.2);">
+      <div class="container-fluid" >
+          <button type="button" class="btn btn-outline-primary"> <a class="navbar-brand" href="{{url_for('login')}}" style="color:rgb(0, 0, 0)"><b>Log In as Admin </b></a></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup"style="text-align:">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="{{url_for('index')}}"style="color:rgb(0,0,0)"><b>Home</b></a>
+            <a class="nav-link" href="{{ url_for('features' ) }}" style="color:rgb(0, 0, 0)"><b>Dashboard</b></a>
+            <!-- <a class="nav-link" href="#" style="color:rgb(0, 0, 0)"><b></b></a> -->
+          </div>
+        </div>
+      </div>
+        </nav>
+    <div class="chartMenu">
+     <p>DASHBOARD</p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart" style="height:260px; width:670px "></canvas>
+        </div>
+      <div class="chartBox">
+        <canvas id="mychart1" style="height:260px; width :670px"></canvas>
+      </div>
+      
+     
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js" integrity="sha512-MefNfAGJ/pEy89xLOFs3V6pYPs6AmUhXJrRlydI/9wZuGrqxmrdQ80zKHUcyadAcpH67teDZcBeS6oMJLPtTqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      
+      var ctx=document.getElementById("myChart").getContext("2d");
+      
+        var mychart=new Chart(ctx,{
+            type:"bar",
+            data:{
+                labels: {{labels }},
+                datasets:[
+                    {
+                        label:"Bhk Vs Price",
+                        data:{{ values }},
+                        fill:true,
+                        borderColor:"rgb(75,192,192)",
+                        lineTension:0.1
+                    }
+                ]
+            },
+            options:
+            {
+                responsive:true
+               
+            },
+            scales: {
+                   y: {
+                    min: 10,
+                    max: 50,
+                      }
+                    }
+        })
+
+      var ctx1=document.getElementById("mychart1").getContext("2d");
+      const labels1 = {{ labels1 }}
+      const values1 = {{ values }}
+      const data = []
+      // for (let i = 0; i < labels1.length; i++) {
+      //   data.push({
+      //     x: labels1[i],
+      //     y: values1[i]
+      //   })
+      // }
+      labels1.forEach((label, i) => {
+        data.push({
+          x: label,
+          y: values1[i]
+        })
+      })
+      var mychart1=new Chart(ctx1,{
+          type:"scatter",
+          data:{
+              // labels1: {{labels1}},
+              datasets:[
+                  {
+                      label:"Sq.ft and price",
+                      data,
+                      fill:true,
+                      borderColor:"rgb(75,192,192)",
+                      lineTension:0.1
+                  }
+              ]
+          },
+          options:
+          {
+              responsive:false
+          }
+      })     
+    </script>
+  
+  
+  
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+  </body>
+</html>

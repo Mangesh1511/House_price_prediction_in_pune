@@ -1,0 +1,214 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.heading{
+    padding:30px;
+   display: flex;
+   justify-content: space-between;
+    align-items: center;
+    color:rgb(236, 231, 231);
+    font-family: 'Edu NSW ACT Foundation', cursive;
+
+  font-size: 30px;
+  padding-left:100px;
+}
+/* .header >h1{
+    padding-top:30px;
+    padding-left:50px;
+} */
+.flex-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding:30px; */
+    padding-top: 10px;
+    height:100vh;
+    width:50vw;
+    border: 3px bold black;
+    /* padding-right:200px; */
+}
+
+.content
+{
+    height:100vh;
+    width:100vw;
+    display:flex;
+}
+
+/* Login OR Sign Up Form */
+.signupform
+{
+    width:50vw;
+    height:100vh;
+    /* padding:5px px 0px 0px; */
+    /* padding-top: 1px; */
+    /* padding-inline: 15px; */
+   
+}
+
+.signupform-content >form
+{
+    height:30px;
+    width:225px;
+    border-radius:12px;
+    border-color:0.5px #ccd0d5;
+    padding-left:20px ;
+
+}
+.signupform-content >h1
+{
+    color:rgb(25, 25, 25);
+}
+
+.common-btn
+{
+    border-radius: 6px;
+    height:36px;
+    width:160px;
+    padding:0 32px;
+    background-color:#00a400;
+    font-weight: bold;
+    color:#fff;
+    box-shadow:none;
+    font-family:inherit;
+    font-size:18px;
+}
+.signupform-content
+{
+    height:90vh;
+    width:36vw; 
+  
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    /* padding-left:65px; */
+    background-color: white;
+    padding-top:10px;
+    
+}
+.signupform-heading
+{
+    padding-left:120px;
+    
+
+}
+.signupform-body
+{
+   align-items:center;
+   padding-left:120px;
+}
+.signupform-body>form>input
+{
+    height:20px;
+    width:180px;
+    border-radius:12px;
+    border-color:0.5px #ccd0d5;
+
+}
+.loginform
+{
+    width:50vw;
+    height:100vh;
+    padding-top:20px;
+    /* padding:5px px 0px 0px; */
+    /* padding-top: 1px; */
+    /* padding-inline: 15px; */
+   
+}
+.loginform-content
+{
+    height:500px;
+    width:400px; 
+  
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    /* padding-left:65px; */
+    background-color: white;
+    padding-top:10px;
+    
+}
+.loginform-heading
+{
+    padding-left:100px;
+    
+
+}
+.loginform-body
+{
+   /* align-items:center; */
+   padding-left:80px;
+}
+.loginform-body>form>input
+{
+    height:20px;
+    width:180px;
+    border-radius:12px;
+    border-color:0.5px #ccd0d5;
+
+}
+.btn-box
+{
+    padding-left:20px;
+   padding-bottom:5px;
+}
+
+.common-btn1
+{
+    border-radius: 6px;
+    height:36px;
+    width:160px;
+    padding:0 32px;
+    background-color:rgb(20, 2, 5);
+    font-weight: bold;
+    color:#fff;
+    box-shadow:none;
+    font-family:inherit;
+    font-size:18px;
+}
+.wrong-pass-alert
+{
+
+    font-weight:bold;
+}
+.redirect-signup{
+    padding-left:80px;
+}
+.redirect-signup>.common-btn2
+{
+    width:190px;
+
+}
+.common-btn2
+{
+    border-radius: 6px;
+    height:36px;
+    width:190px;
+    padding:0 32px;
+    background-color:#00a400;
+    font-weight: bold;
+    color:#fff;
+    box-shadow:none;
+    font-family:inherit;
+    font-size:18px;
+}
+.redirect-signup>.line
+{
+    padding-left:80px;
+}
