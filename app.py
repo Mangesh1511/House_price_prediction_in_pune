@@ -24,7 +24,6 @@ mysql=MySQL(app)
 
 @app.route('/login',methods=['GET' ,'POST' ])
 def login():
-        print('alo ithparyant')
         msg=''
         if request.method=='POST' and 'username' in request.form and 'password' in request.form:
             print('alo itha pn')
